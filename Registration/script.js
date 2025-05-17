@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector("form");
   const uploadInput = document.getElementById("upload");
@@ -29,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     alert("Form submitted successfully!");
-    // You can uncomment the next line if you want actual form submission
-    // form.submit();
+     form.submit();
   });
 });
