@@ -1,0 +1,10 @@
+.todoContainer {
+  font-weight: 900;
+  font-size: 50px; 
+  margin: 20px;
+  margin-bottom: 40px;
+  text-align: center;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
