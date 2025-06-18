@@ -1,0 +1,33 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  background-color: #879fcf;
+}
+
+
+.App-container{
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.content{
+  width: 100%;
+}
+
+.Sidebar{
+  width: 280px;
+height: 640px ;
+  
+}
+
+.post-card{
+  margin: 50px 50px;
+  margin-left: 100px;
+   box-sizing: border-box;
+}
+
