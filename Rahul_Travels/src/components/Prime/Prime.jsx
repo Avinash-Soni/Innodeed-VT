@@ -28,7 +28,7 @@ const Subscribe = () => {
         >
           <div className="text-center space-y-4 lg:max-w-[430px] mx-auto">
             <h1 className="text-4xl font-bold !leading-snug">
-             To Get primium Benifits Take <span className="text-secondary">Prime Membership</span>
+             To Get Premium Benefits Take <span className="text-secondary">Prime Membership</span>
 
             </h1>
             <p>

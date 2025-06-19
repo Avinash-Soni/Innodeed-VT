@@ -3,6 +3,7 @@ import { SiPrime } from "react-icons/si";
 import PrimePng from "../assets/prime.png";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 
 
 const PrimeMembership = () => {
@@ -109,7 +110,7 @@ const PrimeMembership = () => {
                 />
               </div>
             </div>
-
+            <Link to = "/">
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
@@ -118,6 +119,7 @@ const PrimeMembership = () => {
             >
               Submit
             </motion.button>
+            </Link>
           </form>
         </div>
       </div>

@@ -74,7 +74,7 @@ const Career = () => {
             </p>
             <p className="text-gray-600">{job.description}</p>
             <button
-              onClick={() => navigate("/apply", { state: { jobTitle: job.title } })}
+              onClick={() => navigate("/", { state: { jobTitle: job.title } })}
               className="primary-btn"
             >
               Apply Now

@@ -1,9 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import specialOffer from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const offers = [
-  {
+   {
     route: "Jamshedpur To Kolkata Airport Ertiga",
     price: "₹5500",
     date: "13-06-2025",
@@ -104,13 +105,13 @@ const offers = [
 const TodayOffers = () => {
   return (
     <motion.div
-      className="p-6 bg-[#f8f9fa] min-h-screen"
+      className="p-4 sm:p-6 bg-[#f8f9fa] min-h-screen"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
       <motion.h1
-        className="text-4xl font-bold mb-8 text-center text-gray-800"
+        className="text-2xl sm:text-4xl font-bold mb-6 sm:mb-8 text-center text-gray-800"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2 }}
@@ -118,22 +119,23 @@ const TodayOffers = () => {
         TODAY'S OFFER
       </motion.h1>
 
-      <div className="overflow-x-auto">
+      {/* Responsive Table Container */}
+      <div className="w-full overflow-x-auto">
         <motion.table
-          className="min-w-full bg-white shadow-md rounded-xl"
+          className="min-w-[800px] sm:min-w-full bg-white shadow-md rounded-xl text-sm sm:text-base"
           initial={{ scale: 0.95 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.3 }}
         >
           <thead className="bg-orange-400 text-white">
             <tr>
-              <th className="py-3 px-4">Sno.</th>
-              <th className="py-3 px-4">Image</th>
-              <th className="py-3 px-4">Route</th>
-              <th className="py-3 px-4">Price</th>
-              <th className="py-3 px-4">Date</th>
-              <th className="py-3 px-4">Time</th>
-              <th className="py-3 px-4">Action</th>
+              <th className="py-2 sm:py-3 px-2 sm:px-4">Sno.</th>
+              <th className="py-2 sm:py-3 px-2 sm:px-4">Image</th>
+              <th className="py-2 sm:py-3 px-2 sm:px-4">Route</th>
+              <th className="py-2 sm:py-3 px-2 sm:px-4">Price</th>
+              <th className="py-2 sm:py-3 px-2 sm:px-4">Date</th>
+              <th className="py-2 sm:py-3 px-2 sm:px-4">Time</th>
+              <th className="py-2 sm:py-3 px-2 sm:px-4">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -143,22 +145,24 @@ const TodayOffers = () => {
                 className="border-b hover:bg-yellow-50"
                 whileHover={{ scale: 1.01 }}
               >
-                <td className="py-3 px-4 text-center">{index + 1}</td>
-                <td className="py-3 px-4 text-center">
+                <td className="py-2 sm:py-3 px-2 sm:px-4 text-center">{index + 1}</td>
+                <td className="py-2 sm:py-3 px-2 sm:px-4 text-center">
                   <img
                     src={specialOffer}
                     alt="offer"
-                    className="w-10 h-10 mx-auto rounded-full object-cover hover:scale-110 transition-transform duration-300"
+                    className="w-8 h-8 sm:w-10 sm:h-10 mx-auto rounded-full object-cover hover:scale-110 transition-transform duration-300"
                   />
                 </td>
-                <td className="py-3 px-4 text-gray-700">{offer.route}</td>
-                <td className="py-3 px-4 text-gray-700">{offer.price}</td>
-                <td className="py-3 px-4 text-gray-700">{offer.date}</td>
-                <td className="py-3 px-4 text-gray-700">{offer.time}</td>
-                <td className="py-3 px-4 text-center">
-                  <button className="primary-btn text-white py-2 px-4 rounded-full transition-colors duration-300">
+                <td className="py-2 sm:py-3 px-2 sm:px-4 text-gray-700">{offer.route}</td>
+                <td className="py-2 sm:py-3 px-2 sm:px-4 text-gray-700">{offer.price}</td>
+                <td className="py-2 sm:py-3 px-2 sm:px-4 text-gray-700">{offer.date}</td>
+                <td className="py-2 sm:py-3 px-2 sm:px-4 text-gray-700">{offer.time}</td>
+                <td className="py-2 sm:py-3 px-2 sm:px-4 text-center">
+                  <Link to = "/">
+                  <button className="bg-orange-500 hover:bg-orange-600 text-white py-1 sm:py-2 px-3 sm:px-4 text-xs sm:text-sm rounded-full transition-colors duration-300">
                     Book Now
                   </button>
+                  </Link>
                 </td>
               </motion.tr>
             ))}
