@@ -120,7 +120,7 @@ const TodayOffers = () => {
       </motion.h1>
 
       {/* Desktop Table View */}
-      <div className="w-full overflow-x-auto hidden sm:block">
+      <div className="w-full overflow-x-auto hidden sm:flex justify-center">
         <motion.table
           className="min-w-[800px] bg-white shadow-md rounded-xl text-sm sm:text-base"
           initial={{ scale: 0.95 }}

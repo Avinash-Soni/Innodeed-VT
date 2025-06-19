@@ -114,7 +114,7 @@ const Contact = () => {
               />
               <motion.button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-3 rounded-md mt-6 hover:bg-blue-700 transition"
+                className="primary-btn"
                 whileTap={{ scale: 0.95 }}
               >
                 Send Message
