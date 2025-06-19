@@ -48,39 +48,42 @@ const Contact = () => {
 
   return (
     <motion.div
-      className="container mx-auto p-8 flex flex-col gap-8 max-w-[1200px]"
+      className="container mx-auto p-4 sm:p-6 md:p-8 flex flex-col gap-10 max-w-screen-xl"
       initial="initial"
       animate="animate"
     >
-      {/* Top Section: Contact Details and Form */}
-      <div className="flex flex-wrap gap-8">
-        {/* Left Column */}
-        <motion.div className="flex-1 min-w-[300px]" variants={fadeInUp}>
-          <h1 className="text-3xl font-bold mb-4">Contact Details</h1>
-          <p className="mb-2"><strong>Address:</strong><br />
+      {/* Contact Section */}
+      <div className="flex flex-col md:flex-row gap-8">
+        {/* Left: Contact Info */}
+        <motion.div className="md:w-1/2 w-full" variants={fadeInUp}>
+          <h1 className="text-2xl sm:text-3xl font-bold mb-4">Contact Details</h1>
+          <p className="mb-2 text-sm sm:text-base"><strong>Address:</strong><br />
             301 Shriji Heights,<br />
             beside Kotak Mahindra Bank,<br />
             Civil Lines, Raipur, Chhattisgarh 492001
           </p>
-          <p className="mb-2"><strong>Phone:</strong> <a href="tel:+919893411411" className="text-gray-600 hover:underline">+91 98934 11411</a></p>
-          <p className="mb-6"><strong>Email:</strong> <a href="mailto:rahultravelsoneway@gmail.com" className="text-gray-600 hover:underline">rahultravelsoneway@gmail.com</a></p>
-
+          <p className="mb-2 text-sm sm:text-base">
+            <strong>Phone:</strong> <a href="tel:+919893411411" className="text-blue-600 hover:underline">+91 98934 11411</a>
+          </p>
+          <p className="mb-6 text-sm sm:text-base">
+            <strong>Email:</strong> <a href="mailto:rahultravelsoneway@gmail.com" className="text-blue-600 hover:underline">rahultravelsoneway@gmail.com</a>
+          </p>
           <motion.img
             src={ContactUs}
             alt="Rahul Travels"
-            className="w-full rounded-xl shadow-lg mb-6 object-cover"
+            className="w-full h-auto rounded-xl shadow-lg object-cover max-h-[300px]"
             whileHover={{ scale: 1.05 }}
           />
         </motion.div>
 
-        {/* Right Column - Contact Form */}
-        <motion.div className="flex-1 min-w-[300px]" variants={fadeInUp}>
-          <h1 className="text-3xl font-bold mb-4">Send Us a Message</h1>
+        {/* Right: Form */}
+        <motion.div className="md:w-1/2 w-full" variants={fadeInUp}>
+          <h1 className="text-2xl sm:text-3xl font-bold mb-4">Send Us a Message</h1>
           {submitted ? (
             <motion.img
               src={ThankU}
               alt="Thank You"
-              className="w-full rounded-xl shadow-lg object-cover"
+              className="w-full rounded-xl shadow-lg object-cover max-h-[300px]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
@@ -90,28 +93,28 @@ const Contact = () => {
               <input
                 type="text" name="name" placeholder="Your Name"
                 value={formData.name} onChange={handleChange} required
-                className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="p-3 border border-gray-300 rounded-md text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
               <input
                 type="email" name="email" placeholder="Your Email"
                 value={formData.email} onChange={handleChange} required
-                className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="p-3 border border-gray-300 rounded-md text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
               <input
                 type="tel" name="phone" placeholder="Your Phone Number"
                 value={formData.phone} onChange={handleChange} required
                 pattern="^[0-9]{10}$" maxLength="10"
                 title="Enter a valid 10-digit phone number"
-                className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="p-3 border border-gray-300 rounded-md text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
               <textarea
                 name="message" rows="5" placeholder="Your Message"
                 value={formData.message} onChange={handleChange} required
-                className="p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="p-3 border border-gray-300 rounded-md text-sm sm:text-base focus:outline-none focus:ring-2 focus:ring-blue-400"
               />
               <motion.button
                 type="submit"
-                className=" w-full primary-btn !mt-8"
+                className="w-full bg-blue-600 text-white py-3 rounded-md mt-6 hover:bg-blue-700 transition"
                 whileTap={{ scale: 0.95 }}
               >
                 Send Message
@@ -121,21 +124,21 @@ const Contact = () => {
         </motion.div>
       </div>
 
-      {/* FAQ Section - Centered Below Contact & Form */}
-      <motion.div className="w-full mt-10" variants={fadeInUp}>
-        <h3 className="text-2xl font-semibold text-center mb-6">FAQs</h3>
-        <div className="max-w-3xl mx-auto">
+      {/* FAQ Section */}
+      <motion.div className="w-full mt-6 sm:mt-10" variants={fadeInUp}>
+        <h3 className="text-xl sm:text-2xl font-semibold text-center mb-6">FAQs</h3>
+        <div className="w-full max-w-3xl mx-auto px-2 sm:px-4">
           {faqs.map((faq, index) => (
             <div key={index} className="mb-4">
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full text-left font-semibold bg-gray-200 p-3 rounded-md hover:bg-gray-300"
+                className="w-full text-left font-medium bg-gray-100 p-3 rounded-md hover:bg-gray-200 text-sm sm:text-base"
               >
                 {faq.q}
               </button>
               {faqOpen === index && (
                 <motion.p
-                  className="p-3 bg-white border border-gray-300 rounded-md mt-2"
+                  className="p-3 bg-white border border-gray-300 rounded-md mt-2 text-sm sm:text-base"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                 >

@@ -119,23 +119,23 @@ const TodayOffers = () => {
         TODAY'S OFFER
       </motion.h1>
 
-      {/* Responsive Table Container */}
-      <div className="w-full overflow-x-auto">
+      {/* Desktop Table View */}
+      <div className="w-full overflow-x-auto hidden sm:block">
         <motion.table
-          className="min-w-[800px] sm:min-w-full bg-white shadow-md rounded-xl text-sm sm:text-base"
+          className="min-w-[800px] bg-white shadow-md rounded-xl text-sm sm:text-base"
           initial={{ scale: 0.95 }}
           animate={{ scale: 1 }}
           transition={{ delay: 0.3 }}
         >
           <thead className="bg-orange-400 text-white">
             <tr>
-              <th className="py-2 sm:py-3 px-2 sm:px-4">Sno.</th>
-              <th className="py-2 sm:py-3 px-2 sm:px-4">Image</th>
-              <th className="py-2 sm:py-3 px-2 sm:px-4">Route</th>
-              <th className="py-2 sm:py-3 px-2 sm:px-4">Price</th>
-              <th className="py-2 sm:py-3 px-2 sm:px-4">Date</th>
-              <th className="py-2 sm:py-3 px-2 sm:px-4">Time</th>
-              <th className="py-2 sm:py-3 px-2 sm:px-4">Action</th>
+              <th className="py-3 px-4">Sno.</th>
+              <th className="py-3 px-4">Image</th>
+              <th className="py-3 px-4">Route</th>
+              <th className="py-3 px-4">Price</th>
+              <th className="py-3 px-4">Date</th>
+              <th className="py-3 px-4">Time</th>
+              <th className="py-3 px-4">Action</th>
             </tr>
           </thead>
           <tbody>
@@ -145,29 +145,65 @@ const TodayOffers = () => {
                 className="border-b hover:bg-yellow-50"
                 whileHover={{ scale: 1.01 }}
               >
-                <td className="py-2 sm:py-3 px-2 sm:px-4 text-center">{index + 1}</td>
-                <td className="py-2 sm:py-3 px-2 sm:px-4 text-center">
+                <td className="py-3 px-4 text-center">{index + 1}</td>
+                <td className="py-3 px-4 text-center">
                   <img
                     src={specialOffer}
                     alt="offer"
-                    className="w-8 h-8 sm:w-10 sm:h-10 mx-auto rounded-full object-cover hover:scale-110 transition-transform duration-300"
+                    className="w-10 h-10 mx-auto rounded-full object-cover hover:scale-110 transition-transform duration-300"
                   />
                 </td>
-                <td className="py-2 sm:py-3 px-2 sm:px-4 text-gray-700">{offer.route}</td>
-                <td className="py-2 sm:py-3 px-2 sm:px-4 text-gray-700">{offer.price}</td>
-                <td className="py-2 sm:py-3 px-2 sm:px-4 text-gray-700">{offer.date}</td>
-                <td className="py-2 sm:py-3 px-2 sm:px-4 text-gray-700">{offer.time}</td>
-                <td className="py-2 sm:py-3 px-2 sm:px-4 text-center">
-                  <Link to = "/">
-                  <button className="bg-orange-500 hover:bg-orange-600 text-white py-1 sm:py-2 px-3 sm:px-4 text-xs sm:text-sm rounded-full transition-colors duration-300">
-                    Book Now
-                  </button>
+                <td className="py-3 px-4 text-gray-700">{offer.route}</td>
+                <td className="py-3 px-4 text-gray-700">{offer.price}</td>
+                <td className="py-3 px-4 text-gray-700">{offer.date}</td>
+                <td className="py-3 px-4 text-gray-700">{offer.time}</td>
+                <td className="py-3 px-4 text-center">
+                  <Link to="/">
+                    <button className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 text-sm rounded-full transition-colors duration-300">
+                      Book Now
+                    </button>
                   </Link>
                 </td>
               </motion.tr>
             ))}
           </tbody>
         </motion.table>
+      </div>
+
+      {/* Mobile Card View */}
+      <div className="sm:hidden flex flex-col gap-4 mt-6">
+        {offers.map((offer, index) => (
+          <motion.div
+            key={index}
+            className="bg-white shadow-md rounded-xl p-4 flex flex-col gap-2"
+            whileHover={{ scale: 1.01 }}
+          >
+            <div className="flex items-center gap-4">
+              <img
+                src={specialOffer}
+                alt="offer"
+                className="w-12 h-12 rounded-full object-cover"
+              />
+              <h2 className="font-semibold text-gray-800">{offer.route}</h2>
+            </div>
+            <p className="text-sm text-gray-600">
+              <strong>Price:</strong> {offer.price}
+            </p>
+            <p className="text-sm text-gray-600">
+              <strong>Date:</strong> {offer.date}
+            </p>
+            <p className="text-sm text-gray-600">
+              <strong>Time:</strong> {offer.time}
+            </p>
+            <div className="mt-2">
+              <Link to="/">
+                <button className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 px-4 text-sm rounded-full transition-colors duration-300">
+                  Book Now
+                </button>
+              </Link>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </motion.div>
   );
